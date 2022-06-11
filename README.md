@@ -9,7 +9,7 @@
 
 - jmh.v1.3.5
 - fastjson.v1.2.83
-- fastjson2.v2.0.7
+- fastjson2.v2.0.6
 - jackson.v.2.9.9.3
 - spel.v5.3.9
 - snakeyaml.v1.29
