@@ -8,11 +8,73 @@
 版本信息
 
 - jmh.v1.3.5
+- **wast.v0.0.3**
 - fastjson.v1.2.83
 - fastjson2.v2.0.6
 - jackson.v.2.9.9.3
 - spel.v5.3.9
 - snakeyaml.v1.29
+
+~~~
+ <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <jmh.version>1.35</jmh.version>
+        <spring.version>5.3.9</spring.version>
+        <fastjson1.version>1.2.83</fastjson1.version>
+        <fastjson2.version>2.0.6</fastjson2.version>
+        <snakeyaml-version>1.29</snakeyaml-version>
+        <jackson.version>2.9.9.3</jackson.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.wycst</groupId>
+            <artifactId>wast</artifactId>
+            <version>0.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson1.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+
+    </dependencies>
+~~~
+
 
 ## JSON篇
 
