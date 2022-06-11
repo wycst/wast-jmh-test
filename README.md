@@ -1,5 +1,8 @@
 # wast-jmh-test
 
+github源码地址：
+[https://github.com/wycst/wast](https://github.com/wycst/wast)
+
 藏了2年的一个java库，都是一行一行撸出来的，转职前端后，这个库差点沦为垃圾，原来叫light改了个名字叫wast（没啥特殊含义），已发布到了maven中央仓库，由于groupId的限制，重构了所有的包名。
 从工具库到web框架，有条件会陆续放出来。
 
@@ -11,9 +14,6 @@
     <version>0.0.3</version>
 </dependency>
 ```
-
-github地址：
-[https://github.com/wycst/wast](https://github.com/wycst/wast)
 
 以下针对部分模块做的性能评测数据（性能测试结果仅限选择场景样本，有兴趣可以自行fork测试）
 
