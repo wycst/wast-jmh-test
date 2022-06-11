@@ -122,7 +122,7 @@ SmallTextParseTest.wastjson   thrpt    5  2199.300 ± 30.759  ops/ms
 
 测试结果： fastjson2 > wastjson > fastjson1 > jackson
 
-- 反序列化 - 中文本测试(175kb)（ops/s）
+- 反序列化 - 中长文本测试(175kb)（ops/s）
 
 ~~~
 Benchmark                                 Mode  Cnt     Score     Error  Units
