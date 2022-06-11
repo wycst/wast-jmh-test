@@ -1,5 +1,20 @@
 # wast-jmh-test
 
+藏了2年的一个java库，都是一行一行撸出来的，除了自己使用外，差点沦为垃圾，原来叫light改了个名字叫wast（没啥特殊含义），已发布到了maven中央仓库，由于groupId的限制，重构了所有的包名。
+从工具库到web框架，有条件会陆续放出来。
+
+```xml
+
+<dependency>
+    <groupId>io.github.wycst</groupId>
+    <artifactId>wast</artifactId>
+    <version>0.0.3</version>
+</dependency>
+```
+
+github地址：
+[https://github.com/wycst/wast](https://github.com/wycst/wast)
+
 测试环境
 
 - 服务器: window10 32g i5 ssd
@@ -74,7 +89,6 @@
 
     </dependencies>
 ~~~
-
 
 ## JSON篇
 
@@ -241,11 +255,13 @@ ExpressionTest.wastParseDynamicExpr   thrpt    5  3172853.345 ± 355515.730  ops
 ## yaml
 
 pk对象org.snakeyaml库(暂时未发现有其他的yaml库)
+
 ~~~
 Benchmark            Mode  Cnt    Score   Error   Units
 YamlTest.snakeyaml  thrpt    5   26.687 ± 0.832  ops/ms
 YamlTest.wastYaml   thrpt    5  548.392 ± 2.784  ops/ms
 ~~~
+
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/yaml/YamlTest.java
 
 测试结果：wast >> spel
