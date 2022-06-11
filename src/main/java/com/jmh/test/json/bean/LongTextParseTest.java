@@ -1,6 +1,5 @@
 package com.jmh.test.json.bean;
 
-import com.alibaba.fastjson2.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.wycst.wast.json.options.WriteOption;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -11,6 +10,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -27,8 +27,8 @@ public class LongTextParseTest {
 
     private static String simpleResult;
     private static String simplePrettyResult;
-    private static String complexResult;
-    private static String complexPrettyResult;
+    private static String escapeResult;
+    private static String escapePrettyResult;
 
     static {
         int length = 10000;
@@ -57,83 +57,104 @@ public class LongTextParseTest {
         map.put("r", value);
 
         simpleResult = io.github.wycst.wast.json.JSON.toJsonString(map);
+        System.out.println("数据大小：" + (simpleResult.getBytes(StandardCharsets.UTF_8).length >> 10));
         simplePrettyResult = io.github.wycst.wast.json.JSON.toJsonString(map, WriteOption.FormatOut);
 
-        // 随机添加10个转义字符
+        // 随机添加转义字符
         for (int j = 1; j < 32; j++) {
             int index = ((int) (Math.random() * 10000)) % length;
             value.setCharAt(index, (char) j);
         }
-        complexResult = io.github.wycst.wast.json.JSON.toJsonString(map);
-        complexPrettyResult = io.github.wycst.wast.json.JSON.toJsonString(map, WriteOption.FormatOut);
+        escapeResult = io.github.wycst.wast.json.JSON.toJsonString(map);
+        escapePrettyResult = io.github.wycst.wast.json.JSON.toJsonString(map, WriteOption.FormatOut);
 
-        Map map1 = JSON.parseObject(complexResult, LinkedHashMap.class);
-        Map map2 = io.github.wycst.wast.json.JSON.parseObject(complexResult, LinkedHashMap.class);
-        Map map3 = JSON.parseObject(complexPrettyResult, LinkedHashMap.class);
-        Map map4 = io.github.wycst.wast.json.JSON.parseObject(complexPrettyResult, LinkedHashMap.class);
-        System.out.println(JSON.toJSONString(map1).equals(JSON.toJSONString(map2)));
-        System.out.println(JSON.toJSONString(map3).equals(JSON.toJSONString(map4)));
+        Map map1 = com.alibaba.fastjson2.JSON.parseObject(escapeResult, LinkedHashMap.class);
+        Map map2 = io.github.wycst.wast.json.JSON.parseObject(escapeResult, LinkedHashMap.class);
+        Map map3 = com.alibaba.fastjson2.JSON.parseObject(escapePrettyResult, LinkedHashMap.class);
+        Map map4 = io.github.wycst.wast.json.JSON.parseObject(escapePrettyResult, LinkedHashMap.class);
+        System.out.println(com.alibaba.fastjson2.JSON.toJSONString(map1).equals(com.alibaba.fastjson2.JSON.toJSONString(map2)));
+        System.out.println(com.alibaba.fastjson2.JSON.toJSONString(map3).equals(com.alibaba.fastjson2.JSON.toJSONString(map4)));
 
     }
 
     @Benchmark
-    public void simpleFastjson2(Blackhole bh) {
-        bh.consume(JSON.parseObject(simpleResult, Map.class));
+    public void fastjson1(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson.JSON.parseObject(simpleResult, Map.class));
     }
 
     @Benchmark
-    public void simpleJackson(Blackhole bh) throws Exception {
+    public void fastjson2(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson2.JSON.parseObject(simpleResult, Map.class));
+    }
+
+    @Benchmark
+    public void jackson(Blackhole bh) throws Exception {
         bh.consume(mapper.readValue(simpleResult, Map.class));
     }
 
     @Benchmark
-    public void simpleWastjson(Blackhole bh) {
+    public void wastjson(Blackhole bh) {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(simpleResult, Map.class));
     }
 
     @Benchmark
-    public void simplePrettyFastjson2(Blackhole bh) {
-        bh.consume(JSON.parseObject(simplePrettyResult, Map.class));
+    public void prettyFastjson1(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson.JSON.parseObject(simplePrettyResult, Map.class));
     }
 
     @Benchmark
-    public void simplePrettyJackson(Blackhole bh) throws Exception {
+    public void prettyFastjson2(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson2.JSON.parseObject(simplePrettyResult, Map.class));
+    }
+
+    @Benchmark
+    public void prettyJackson(Blackhole bh) throws Exception {
         bh.consume(mapper.readValue(simplePrettyResult, Map.class));
     }
 
     @Benchmark
-    public void simplePrettyWastjson(Blackhole bh) {
+    public void prettyWastjson(Blackhole bh) {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(simplePrettyResult, Map.class));
     }
 
     @Benchmark
-    public void complexFastjson2(Blackhole bh) {
-        bh.consume(JSON.parseObject(complexResult, Map.class));
+    public void escapeFastjson1(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson.JSON.parseObject(escapeResult, Map.class));
     }
 
     @Benchmark
-    public void complexJackson(Blackhole bh) throws Exception {
-        bh.consume(mapper.readValue(complexResult, Map.class));
+    public void escapeFastjson2(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson2.JSON.parseObject(escapeResult, Map.class));
     }
 
     @Benchmark
-    public void complexWastjson(Blackhole bh) {
-        bh.consume(io.github.wycst.wast.json.JSON.parseObject(complexResult, Map.class));
+    public void escapeJackson(Blackhole bh) throws Exception {
+        bh.consume(mapper.readValue(escapeResult, Map.class));
     }
 
     @Benchmark
-    public void complexPrettyFastjson2(Blackhole bh) {
-        bh.consume(JSON.parseObject(complexPrettyResult, Map.class));
+    public void escapeWastjson(Blackhole bh) {
+        bh.consume(io.github.wycst.wast.json.JSON.parseObject(escapeResult, Map.class));
     }
 
     @Benchmark
-    public void complexPrettyJackson(Blackhole bh) throws Exception {
-        bh.consume(mapper.readValue(complexPrettyResult, Map.class));
+    public void escapePrettyFastjson(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson.JSON.parseObject(escapePrettyResult, Map.class));
     }
 
     @Benchmark
-    public void complexPrettyWastjson(Blackhole bh) {
-        bh.consume(io.github.wycst.wast.json.JSON.parseObject(complexPrettyResult, Map.class));
+    public void escapePrettyFastjson2(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson2.JSON.parseObject(escapePrettyResult, Map.class));
+    }
+
+    @Benchmark
+    public void escapePrettyJackson(Blackhole bh) throws Exception {
+        bh.consume(mapper.readValue(escapePrettyResult, Map.class));
+    }
+
+    @Benchmark
+    public void escapePrettyWastjson(Blackhole bh) {
+        bh.consume(io.github.wycst.wast.json.JSON.parseObject(escapePrettyResult, Map.class));
     }
 
     public static void main(String[] args) throws RunnerException {

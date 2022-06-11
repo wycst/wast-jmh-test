@@ -1,0 +1,11 @@
+username: 'zhangsan'
+password: '123456'
+roles:
+  - 'admin'
+  - 'admin1'
+  - 'admin2'
+age: !!int 18
+time: !!int 12232312
+date: !!timestamp 2018-01-01t16:59:43.10-05:00
+hobs: [ a,b,c,d ]
+json: { hello: aa, lisi: bb, cc: 123 }

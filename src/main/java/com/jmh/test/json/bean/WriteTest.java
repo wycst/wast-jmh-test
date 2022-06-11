@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class WriteTest {
 
     private static Map map1;
-    private static Map complexMap;
+    private static Map escapeMap;
     static ObjectMapper mapper = new ObjectMapper();
 
     static {
@@ -59,7 +59,7 @@ public class WriteTest {
         map.put("lbcdef", buffer.toString());
         map.put("mbcdef", buffer.toString());
         map.put("nbcdef", buffer.toString());
-        complexMap = map;
+        escapeMap = map;
     }
 
 
@@ -85,24 +85,24 @@ public class WriteTest {
 
 
     @Benchmark
-    public void complexwastjson(Blackhole bh) {
-        bh.consume(io.github.wycst.wast.json.JSON.toJsonString(complexMap));
+    public void escapeWastjson(Blackhole bh) {
+        bh.consume(io.github.wycst.wast.json.JSON.toJsonString(escapeMap));
     }
 
 
     @Benchmark
-    public void complexfastjson(Blackhole bh) {
-        bh.consume(com.alibaba.fastjson.JSON.toJSONString(complexMap));
+    public void escapeFastjson(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson.JSON.toJSONString(escapeMap));
     }
 
     @Benchmark
-    public void complexfastjson2(Blackhole bh) {
-        bh.consume(com.alibaba.fastjson2.JSON.toJSONString(complexMap));
+    public void escapeFastjson2(Blackhole bh) {
+        bh.consume(com.alibaba.fastjson2.JSON.toJSONString(escapeMap));
     }
 
     @Benchmark
-    public void complexjackson(Blackhole bh) throws Exception {
-        bh.consume(mapper.writeValueAsString(complexMap));
+    public void escapeJackson(Blackhole bh) throws Exception {
+        bh.consume(mapper.writeValueAsString(escapeMap));
     }
 
     public static void main(String[] args) throws RunnerException {

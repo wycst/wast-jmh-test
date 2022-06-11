@@ -35,7 +35,7 @@ public class SimpleBeanTest {
         Map mapType = new HashMap();
         mapType.put("v1", "v1 helldsdsd ");
         mapType.put("v2", "v2 helldsdsd ");
-        simpleMap.put("mapType", mapType);
+        simpleMap.put("mapInstance", mapType);
 
         List<Object> versions = new ArrayList<Object>();
         versions.add("v0.0.1");

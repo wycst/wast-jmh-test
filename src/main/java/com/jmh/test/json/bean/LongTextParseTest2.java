@@ -24,7 +24,7 @@ public class LongTextParseTest2 {
     static ObjectMapper mapper = new ObjectMapper();
 
     static {
-        result = StringUtils.fromResource("data/json/catalina.out.D06");
+        result = StringUtils.fromResource("data/json/catalina.out.D07");
     }
 
     @Benchmark

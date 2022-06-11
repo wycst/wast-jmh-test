@@ -1,5 +1,6 @@
 package com.jmh.test.json.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,8 @@ public class SimpleBean {
     private SimpleEnum simpleEnum;
     private Map<String, Object> mapInstance;
     private List<Object> list;
+
+    private List<Object> versions;
 
     public enum SimpleEnum {
         EnumOne,
@@ -92,5 +95,13 @@ public class SimpleBean {
 
     public void setList(List<Object> list) {
         this.list = list;
+    }
+
+    public List<Object> getVersions() {
+        return versions;
+    }
+
+    public void setVersions(List<Object> versions) {
+        this.versions = versions;
     }
 }

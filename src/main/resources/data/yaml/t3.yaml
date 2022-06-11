@@ -1,0 +1,64 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+        # 认证中心
+        - id: lbeam-auth
+          uri: lb://lbeam-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            # 验证码处理
+            - ValidateCodeGatewayFilter
+            # 前端密码解密
+            - PasswordDecoderFilter
+        # UPMS 模块
+        - id: lbeam-upms-biz
+          uri: lb://lbeam-upms-biz
+          predicates:
+            - Path=/admin/**
+          filters:
+            # 限流配置
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@uuuuu}'
+                redis-rate-limiter.replenishRate: 100
+                redis-rate-limiter.burstCapacity: 200
+        # 资产 模块
+        - id: lbeam-core
+          uri: lb://lbeam-core
+          predicates:
+            - Path=/lbeam-core/**
+          filters:
+            # 限流配置
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@yyyyy}'
+                redis-rate-limiter.replenishRate: 100
+                redis-rate-limiter.burstCapacity: 200
+        #  运维
+        - id: lbeam-operation
+          uri: lb://lbeam-operation
+          predicates:
+            - Path=/lbeam-operation/**
+        # 前端开发平台服务
+        - id: devplatform-service
+          uri: lb://devplatform-service
+          predicates:
+            - Path=/devplatform-service/**
+        # 安全管理模块
+        - id: lbeam-security
+          uri: lb://lbeam-security
+          predicates:
+            - Path=/lbeam-security/**
+        # IP地址
+        - id: lbeam-ip
+          uri: lb://lbeam-ip
+          predicates:
+            - Path=/lbeam-ip/**
+gateway:
+  encode-key: 'aaaaaa'
+  ignore-clients:
+    - test
