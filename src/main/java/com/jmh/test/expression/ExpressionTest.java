@@ -67,13 +67,13 @@ public class ExpressionTest {
     // 直接运行动态表达式
     @Benchmark
     public Object spelDirectDynamicExpr() {
-        return parser.parseExpression(staticExpr).getValue(evaluationContext);
+        return parser.parseExpression(dynamicExpr4Spel).getValue(evaluationContext);
     }
 
     // 直接运行动态表达式
     @Benchmark
     public Object wastDirectDynamicExpr() {
-        return Expression.eval(staticExpr, context);
+        return Expression.eval(dynamicExpr, context);
     }
 
     // 解释运行动态表达式
