@@ -22,8 +22,13 @@
     <dependencies>
         <dependency>
             <groupId>io.github.wycst</groupId>
-            <artifactId>wast</artifactId>
-            <version>0.0.3</version>
+            <artifactId>wast-json</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.wycst</groupId>
+            <artifactId>wast-yaml</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
