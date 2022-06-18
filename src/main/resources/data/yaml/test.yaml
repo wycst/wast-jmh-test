@@ -1,0 +1,26 @@
+"port": &p |+
+  sdsdsd
+  sdssd
+    fff
+
+"host": &h localhost
+v1: *h
+host2: &h localhost1
+v2: *h
+v3: *p
+a: &a
+  g: aaa
+  d: '333'
+  e:
+    uuu: *h
+    qqq: *p
+
+users: &users
+  - admin
+  - admin1
+  - admin2: aaaaaaaa
+    pwd: pppppp
+  - *h
+obj: *users
+uu:
+  <<: *a
