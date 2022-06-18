@@ -221,7 +221,7 @@ JSONPathTest.wastTop2Authors           thrpt    5  1451.135 ± 19.843  ops/ms
 
 ## 表达式引擎
 
-pk对象spel(mvel2, ognl, Fel等库性能和spel差距有点大就不考虑加入评测)
+spel(mvel2, ognl, Fel等库性能和spel差距有点大就不考虑加入评测)
 
 不考虑编译模式（将表达式编译为字节码），没啥价值可比。
 
@@ -241,7 +241,7 @@ ExpressionTest.wastParseDynamicExpr   thrpt    5  3172853.345 ± 355515.730  ops
 
 ## yaml
 
-pk对象org.snakeyaml库(暂时未发现有其他的yaml库)
+org.snakeyaml库(暂时未发现有其他的yaml库)
 
 ~~~
 Benchmark            Mode  Cnt    Score   Error   Units
@@ -251,4 +251,4 @@ YamlTest.wastYaml   thrpt    5  548.392 ± 2.784  ops/ms
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/yaml/YamlTest.java
 
-测试结果：wast >> spel
+测试结果：wast >> snakeyaml
