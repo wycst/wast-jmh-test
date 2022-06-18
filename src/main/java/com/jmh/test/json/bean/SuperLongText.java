@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 超文本解析测试（100m）
+ * 超文本解析测试（180MB）
  * <p>文件下载地址： https://codeload.github.com/zemirco/sf-city-lots-json/zip/refs/heads/master
  *
  * @Author: wangy

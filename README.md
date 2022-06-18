@@ -191,7 +191,7 @@ ReadInputStreamTest.wastjson  thrpt    5  27.118 ± 10.143  ops/min
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/ReadInputStreamTest.java
 
 测试结果： wastjson >> jackson  
-(fastjson完全没法读取超大文本流,退出此轮评测)
+(fastjson无法读取超大文本流没有加入)
 
 - 序列化 - 中长文本（ops/ms）
 
