@@ -32,7 +32,7 @@ public class YamlTest {
     private static String yamlSource;
     static Yaml yaml = new Yaml();
     static {
-        InputStream is = YamlTest.class.getResourceAsStream("/data/yaml/entity.yaml");
+        InputStream is = YamlTest.class.getResourceAsStream("/data/yaml/t2.yaml");
         StringBuilder builder = new StringBuilder();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
         String line = null;
@@ -52,8 +52,9 @@ public class YamlTest {
         }
         yamlSource = builder.toString();
 
-        Map map1 = YamlDocument.parse(yamlSource, null);
+        Map map1 = YamlDocument.parse(yamlSource, Map.class);
         Map map2 = yaml.loadAs(yamlSource, Map.class);
+        System.out.println();
         System.out.println(JSON.toJsonString(map1));
         System.out.println(JSON.toJsonString(map2));
     }

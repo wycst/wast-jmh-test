@@ -21,9 +21,10 @@ github源码地址：
 
 - 服务器: window10 32g i5 ssd
 - ide: idea2020.3
-
+- 
 版本信息
 
+- jdk: 1.8.0_45
 - jmh.v1.3.5
 - **wast.v0.0.3**
 - fastjson.v1.2.83
@@ -150,20 +151,6 @@ LongTextParseTest.prettyWastjson         thrpt    5  9459.602 ± 210.523  ops/s
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/LongTextParseTest.java
 
 测试结果： wastjson >> fastjson2 > fastjson1 > jackson
-
-- 反序列化 - 中文本测试(515kb)（ops/s）
-
-~~~
-Benchmark                      Mode  Cnt    Score    Error  Units
-LongTextParseTest2.fastjson1  thrpt    5  502.565 ±  4.324  ops/s
-LongTextParseTest2.fastjson2  thrpt    5  528.788 ±  4.027  ops/s
-LongTextParseTest2.jackson    thrpt    5  596.762 ± 32.091  ops/s
-LongTextParseTest2.wastjson   thrpt    5  569.860 ±  5.274  ops/s
-~~~
-
-测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/LongTextParseTest2.java
-
-测试结果： jackson > wastjson > fastjson2 > fastjson1
 
 - 反序列化 - 超大长文本测试(180mb)（ops/min）
 
