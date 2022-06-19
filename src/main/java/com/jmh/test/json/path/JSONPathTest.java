@@ -32,7 +32,7 @@ public class JSONPathTest {
     // 读取0-1
     @Benchmark
     public Object fastjsonReaderTop2Author() {
-        return JSONPath.extract(str, "$.store.book[0,1].price");
+        return JSONPath.extract(str, "$.store.book[0,1].author");
     }
 
 
