@@ -203,7 +203,7 @@ WriteTest.wastjson         thrpt    5  571.830 ±  1.658  ops/ms
 
 转义文本： wastjson > jackson > fastjson > fastjson2
 
-- fastjson2新特性JSONPath的pk (ops/ms)
+- json提取性能（局部解析） (ops/ms)
 
 ~~~
 Benchmark                               Mode  Cnt     Score    Error   Units
