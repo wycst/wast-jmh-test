@@ -22,7 +22,6 @@ github源码地址：
 
 - 服务器: window10 32g i5 ssd
 - ide: idea2020.3
-- 
 版本信息
 
 - jdk: 1.8.0_45
