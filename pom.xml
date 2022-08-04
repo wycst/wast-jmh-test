@@ -14,7 +14,7 @@
         <jmh.version>1.35</jmh.version>
         <spring.version>5.3.9</spring.version>
         <fastjson1.version>1.2.83</fastjson1.version>
-        <fastjson2.version>2.0.6</fastjson2.version>
+        <fastjson2.version>2.0.10</fastjson2.version>
         <snakeyaml-version>1.29</snakeyaml-version>
         <jackson.version>2.9.9.3</jackson.version>
     </properties>
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>io.github.wycst</groupId>
             <artifactId>wast</artifactId>
-            <version>0.0.3</version>
+            <version>0.0.5</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
