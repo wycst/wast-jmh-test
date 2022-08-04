@@ -223,7 +223,7 @@ JSONPathTest.wastTop2Authors           thrpt    5  1451.135 ± 19.843  ops/ms
 
 spel(mvel2, ognl, Fel等库性能和spel差距有点大就不考虑加入评测)
 
-不考虑编译模式（将表达式编译为字节码），没啥价值可比。
+解释模式（非编译模式）
 
 ~~~
 Benchmark                              Mode  Cnt        Score        Error  Units
