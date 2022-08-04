@@ -1,7 +1,8 @@
 # wast-jmh-test
 
 github源码地址：
-[https://github.com/wycst/wast](https://github.com/wycst/wast)
+[https://github.com/wycst/wast](https://github.com/wycst/wast) 
+最新版本: v0.0.5
 
 藏了2年的一个java库，已发布到了maven中央仓库，由于groupId的限制，重构了所有的包名。
 从工具库到web框架，有条件会陆续放出来。
