@@ -160,7 +160,7 @@ LongTextParse2Test.wastjson         thrpt    5  12296.756 ± 706.176  ops/s
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/LongTextParse2Test.java
 
-测试结果： 
+测试结果： <br>
   simple： wastjson > fastjson2 > jackson  <br>
   escape： wastjson >> jackson > fastjson2  <br>
 
@@ -176,7 +176,7 @@ SuperLongText.wastjson   thrpt    5  107.492 ± 8.661  ops/min
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/SuperLongText.java
 
-测试结果： wastjson >> fastjson2 >> jackson
+测试结果： wastjson > fastjson2 >> jackson
 
 - 序列化 - Eishay样本序列化
 
