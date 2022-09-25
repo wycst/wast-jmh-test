@@ -2,14 +2,14 @@
 
 github源码地址：
 [https://github.com/wycst/wast](https://github.com/wycst/wast) 
-最新版本: v0.0.7
+最新版本: v0.0.8
 
 ```xml
 
 <dependency>
     <groupId>io.github.wycst</groupId>
     <artifactId>wast</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 </dependency>
 ```
 
@@ -88,9 +88,9 @@ github源码地址：
 - 反序列化 - number类型解析
 ~~~
 Benchmark                       Mode  Cnt     Score     Error   Units
-NumberValueBeanTest.fastjson2  thrpt    5   576.482 ±  64.287  ops/ms
-NumberValueBeanTest.jackson    thrpt    5   365.966 ±  13.618  ops/ms
-NumberValueBeanTest.wastjson   thrpt    5  1656.676 ± 160.814  ops/ms
+NumberValueBeanTest.fastjson2  thrpt    5   677.154 ±  4.977  ops/ms
+NumberValueBeanTest.jackson    thrpt    5   387.163 ±  2.635  ops/ms
+NumberValueBeanTest.wastjson   thrpt    5  1714.092 ± 77.231  ops/ms
 ~~~
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/NumberValueBeanTest.java
 
@@ -111,8 +111,8 @@ StringParseTest.wastjson   thrpt    5  586.338 ± 7.675  ops/ms
 - 反序列化 - 日期类型解析
 ~~~
 Benchmark                 Mode  Cnt     Score     Error   Units
-DateParseTest.fastjson2  thrpt    5  7154.759 ± 256.418  ops/ms
-DateParseTest.wastjson   thrpt    5  8556.711 ± 359.024  ops/ms
+DateParseTest.fastjson2        thrpt    5  7119.027 ±  75.230  ops/ms
+DateParseTest.wastjson         thrpt    5  9053.564 ± 186.754  ops/ms
 
 ~~~
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/DateParseTest.java
@@ -122,9 +122,9 @@ DateParseTest.wastjson   thrpt    5  8556.711 ± 359.024  ops/ms
 - 反序列化 - Eishay样本解析
 ~~~
 Benchmark                       Mode  Cnt     Score     Error   Units
-EishayParseTest.fastjson2      thrpt    5   916.486 ±  21.791  ops/ms
-EishayParseTest.jackson        thrpt    5   497.062 ±  26.467  ops/ms
-EishayParseTest.wastjson       thrpt    5   925.267 ±  34.003  ops/ms
+EishayParseTest.fastjson2      thrpt    5   923.627 ±  31.809  ops/ms
+EishayParseTest.jackson        thrpt    5   500.473 ±   9.851  ops/ms
+EishayParseTest.wastjson       thrpt    5   982.312 ±  23.943  ops/ms
 ~~~
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/EishayParseTest.java
 
@@ -134,9 +134,9 @@ EishayParseTest.wastjson       thrpt    5   925.267 ±  34.003  ops/ms
 
 ~~~
 Benchmark                  Mode  Cnt     Score    Error   Units
-SimpleBeanTest.fastjson2       thrpt    5  1556.391 ±  63.205  ops/ms
-SimpleBeanTest.jackson         thrpt    5   484.547 ±   9.402  ops/ms
-SimpleBeanTest.wastjson        thrpt    5  1779.389 ± 119.905  ops/ms
+SimpleBeanTest.fastjson2       thrpt    5  1777.183 ±  67.500  ops/ms
+SimpleBeanTest.jackson         thrpt    5   495.678 ±  13.662  ops/ms
+SimpleBeanTest.wastjson        thrpt    5  1896.977 ±  88.649  ops/ms
 ~~~
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/SimpleBeanTest.java
@@ -182,9 +182,9 @@ SuperLongText.wastjson   thrpt    5  107.492 ± 8.661  ops/min
 
 ~~~
 Benchmark                       Mode  Cnt     Score     Error   Units
-EishayWriterTest.fastjson2     thrpt    5   923.163 ±  46.648  ops/ms
-EishayWriterTest.jackson       thrpt    5   782.062 ±  45.874  ops/ms
-EishayWriterTest.wastjson      thrpt    5  1041.732 ±  90.167  ops/ms
+EishayWriterTest.fastjson2     thrpt    5   965.582 ±  19.142  ops/ms
+EishayWriterTest.jackson       thrpt    5   855.529 ±  18.464  ops/ms
+EishayWriterTest.wastjson      thrpt    5  1203.153 ±  68.709  ops/ms
 ~~~
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/EishayWriterTest.java
@@ -196,11 +196,23 @@ EishayWriterTest.wastjson      thrpt    5  1041.732 ±  90.167  ops/ms
 
 ~~~
 Benchmark                       Mode  Cnt     Score     Error   Units
-SimpleBeanWriteTest.fastjson2  thrpt    5  1090.515 ±  17.933  ops/ms
-SimpleBeanWriteTest.jackson    thrpt    5  1011.073 ±  37.282  ops/ms
-SimpleBeanWriteTest.wastjson   thrpt    5  1579.826 ±  40.862  ops/ms
+SimpleBeanWriteTest.fastjson2  thrpt    5  1090.531 ±  53.834  ops/ms
+SimpleBeanWriteTest.jackson    thrpt    5   947.185 ±  57.502  ops/ms
+SimpleBeanWriteTest.wastjson   thrpt    5  2099.609 ±  78.045  ops/ms
 ~~~
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/SimpleBeanWriteTest.java
 
 测试结果： wastjson > fastjson2 >= jackson
+
+- 序列化 - 日期类型序列化
+
+~~~
+Benchmark                 Mode  Cnt     Score    Error   Units
+DateWriteTest.fastjson2  thrpt    5   333.926 ±  8.128  ops/ms
+DateWriteTest.wastjson   thrpt    5  2114.441 ± 76.450  ops/ms
+~~~
+
+测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/DateWriteTest.java
+
+测试结果： wastjson >> fastjson2

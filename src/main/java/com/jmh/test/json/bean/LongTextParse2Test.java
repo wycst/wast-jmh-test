@@ -91,17 +91,17 @@ public class LongTextParse2Test {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(simpleResult, Map.class));
     }
 
-    @Benchmark
+//    @Benchmark
     public void escapeFastjson2(Blackhole bh) {
         bh.consume(com.alibaba.fastjson2.JSON.parseObject(escapeResult, Map.class));
     }
 
-    @Benchmark
+//    @Benchmark
     public void escapeJackson(Blackhole bh) throws Exception {
         bh.consume(mapper.readValue(escapeResult, Map.class));
     }
 
-    @Benchmark
+//    @Benchmark
     public void escapeWastjson(Blackhole bh) {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(escapeResult, Map.class));
     }

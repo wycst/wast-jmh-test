@@ -1,0 +1,7 @@
+Benchmark                            Mode  Cnt      Score     Error  Units
+LongTextParse2Test.escapeFastjson2  thrpt    5   1810.312 ±  10.304  ops/s
+LongTextParse2Test.escapeJackson    thrpt    5   2469.132 ±  27.648  ops/s
+LongTextParse2Test.escapeWastjson   thrpt    5  10370.212 ± 118.835  ops/s
+LongTextParse2Test.fastjson2        thrpt    5  11063.537 ±  97.252  ops/s
+LongTextParse2Test.jackson          thrpt    5   3444.358 ±  49.968  ops/s
+LongTextParse2Test.wastjson         thrpt    5  12556.424 ±  64.109  ops/s

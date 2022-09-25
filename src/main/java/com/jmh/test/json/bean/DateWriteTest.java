@@ -1,6 +1,7 @@
 package com.jmh.test.json.bean;
 
 import com.alibaba.fastjson2.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.infra.Blackhole;
@@ -11,14 +12,22 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.TimeUnit;
 
-public class Date20Write {
+public class DateWriteTest {
 
     static DateBean2 object = new DateBean2();
+    static ObjectMapper mapper = new ObjectMapper();
 
     @Benchmark
     public void fastjson2(Blackhole bh) {
         bh.consume(
                 JSON.toJSONString(object)
+        );
+    }
+
+    @Benchmark
+    public void jackson(Blackhole bh) throws Exception {
+        bh.consume(
+                mapper.writeValueAsString(object)
         );
     }
 
@@ -31,7 +40,7 @@ public class Date20Write {
 
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder()
-                .include(Date20Write.class.getName())
+                .include(DateWriteTest.class.getName())
                 .mode(Mode.Throughput)
                 .timeUnit(TimeUnit.MILLISECONDS)
                 .warmupIterations(3)

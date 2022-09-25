@@ -50,17 +50,18 @@ public class NumberValueBeanTest {
         bh.consume(mapper.readValue(result, NumberValueBean.class));
     }
 
-//    @Benchmark
+    @Benchmark
     public void fastjson2(Blackhole bh) {
         bh.consume(JSON.parseObject(result, NumberValueBean.class));
     }
 
-//    @Benchmark
+    @Benchmark
     public void wastjson(Blackhole bh) {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(result, NumberValueBean.class));
     }
 
     public static void main(String[] args) throws RunnerException {
+//        io.github.wycst.wast.json.JSON.parseObject(result, NumberValueBean.class);
         Options options = new OptionsBuilder()
                 .include(NumberValueBeanTest.class.getName())
                 .mode(Mode.Throughput)
