@@ -21,7 +21,7 @@ github源码地址：
 
 - jdk: 1.8.0_45
 - jmh.v1.3.5
-- **wast.v0.0.7**
+- **wast.v0.0.8**
 - **fastjson2.v2.0.14**
 - **jackson.v.2.13.4**
 
