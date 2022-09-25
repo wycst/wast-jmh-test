@@ -85,8 +85,6 @@ github源码地址：
     </dependencies>
 ~~~
 
-## JSON篇
-
 - 反序列化 - number类型解析
 ~~~
 Benchmark                       Mode  Cnt     Score     Error   Units
