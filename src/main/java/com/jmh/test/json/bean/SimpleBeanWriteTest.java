@@ -1,5 +1,7 @@
 package com.jmh.test.json.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.wycst.wast.json.JSON;
 import io.github.wycst.wast.json.options.WriteOption;
@@ -24,6 +26,7 @@ public class SimpleBeanWriteTest {
     static ObjectMapper mapper = new ObjectMapper();
     private static Object simpleBean;
     static {
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         Map simpleMap = new HashMap();
         simpleMap.put("id", 1);
@@ -44,12 +47,13 @@ public class SimpleBeanWriteTest {
         simpleMap.put("versions", versions);
 
         result = JSON.toJsonString(simpleMap, WriteOption.FormatOut);
-        simpleBean = JSON.parseObject(result, Map.class);
-    }
-
-    @Benchmark
-    public void fastjson1(Blackhole bh) {
-        bh.consume(com.alibaba.fastjson.JSON.toJSONString(simpleBean));
+        simpleBean = JSON.parseObject(result, SimpleBean.class);
+        System.out.println(com.alibaba.fastjson2.JSON.toJSONString(simpleBean));
+        System.out.println(JSON.toJsonString(simpleBean));
+        try {
+            System.out.println(mapper.writeValueAsString(simpleBean));
+        } catch (JsonProcessingException e) {
+        }
     }
 
     @Benchmark

@@ -16,7 +16,7 @@
         <fastjson1.version>1.2.83</fastjson1.version>
         <fastjson2.version>2.0.14</fastjson2.version>
         <snakeyaml-version>1.29</snakeyaml-version>
-        <jackson.version>2.9.9.3</jackson.version>
+        <jackson.version>2.13.4</jackson.version>
     </properties>
 
     <dependencies>

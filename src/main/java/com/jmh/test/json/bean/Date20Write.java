@@ -11,36 +11,32 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Author: wangy
- * @Date: 2022/6/6 21:05
- * @Description:
- */
-public class DateParseTest {
+public class Date20Write {
 
-    private static String result = "{\"date\": \"2022-06-05T18:22:12.000+08:00\"}";
+    static DateBean2 object = new DateBean2();
 
     @Benchmark
     public void fastjson2(Blackhole bh) {
-        bh.consume(JSON.parseObject(result, DateBean.class));
+        bh.consume(
+                JSON.toJSONString(object)
+        );
     }
 
     @Benchmark
-    public void wastjson(Blackhole bh) {
-        bh.consume(io.github.wycst.wast.json.JSON.parseObject(result, DateBean.class));
+    public void wastjson(Blackhole bh) throws Exception {
+        bh.consume(
+                io.github.wycst.wast.json.JSON.toJsonString(object)
+        );
     }
 
     public static void main(String[] args) throws RunnerException {
-        System.out.println(io.github.wycst.wast.json.JSON.parseObject(result, DateBean.class).getDate());
-        System.out.println(JSON.parseObject(result, DateBean.class).getDate());
         Options options = new OptionsBuilder()
-                .include(DateParseTest.class.getName())
+                .include(Date20Write.class.getName())
                 .mode(Mode.Throughput)
                 .timeUnit(TimeUnit.MILLISECONDS)
+                .warmupIterations(3)
                 .forks(1)
                 .build();
         new Runner(options).run();
-
     }
-
 }

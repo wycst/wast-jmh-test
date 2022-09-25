@@ -1,6 +1,8 @@
 package com.jmh.test.json.bean;
 
 import com.alibaba.fastjson2.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.wycst.wast.json.options.ReadOption;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
@@ -10,9 +12,6 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.math.BigDecimal;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -23,8 +22,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class NumberValueBeanTest {
 
-    static String result =  "{\"value1\":1234560,\"value2\":-1234561,\"value3\":1234562,\"value4\":-1234563}";
+    static String result;
     static Random random = new Random();
+    static ObjectMapper mapper = new ObjectMapper();
+
     static {
 
         NumberValueBean numberValueBean = new NumberValueBean();
@@ -42,22 +43,20 @@ public class NumberValueBeanTest {
         result = io.github.wycst.wast.json.JSON.toJsonString(numberValueBean);
         System.out.println(result);
 
-        String r1 = JSON.toJSONString(JSON.parseObject(result, NumberValueBean.class));
-        String r2 = JSON.toJSONString(io.github.wycst.wast.json.JSON.parseObject(result, NumberValueBean.class, ReadOption.UseNativeDoubleParser));
-        System.out.println(r1);
-        System.out.println(r2);
-        System.out.println(r1.equals(r2));
-
     }
 
-
     @Benchmark
+    public void jackson(Blackhole bh) throws JsonProcessingException {
+        bh.consume(mapper.readValue(result, NumberValueBean.class));
+    }
+
+//    @Benchmark
     public void fastjson2(Blackhole bh) {
         bh.consume(JSON.parseObject(result, NumberValueBean.class));
     }
 
-    @Benchmark
-    public void wastjson_pojo(Blackhole bh) {
+//    @Benchmark
+    public void wastjson(Blackhole bh) {
         bh.consume(io.github.wycst.wast.json.JSON.parseObject(result, NumberValueBean.class));
     }
 
@@ -69,8 +68,6 @@ public class NumberValueBeanTest {
                 .forks(1)
                 .build();
         new Runner(options).run();
-
-//        System.out.println(Double.parseDouble("0.9106004969175495"));
     }
 
 }

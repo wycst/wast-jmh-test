@@ -48,7 +48,7 @@ public class SuperLongText {
         result = buffer.toString();
     }
 
-    @Benchmark
+//    @Benchmark
     public void fastjson(Blackhole bh) {
         bh.consume(com.alibaba.fastjson.JSON.parseObject(result, Map.class));
     }

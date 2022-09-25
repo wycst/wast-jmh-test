@@ -46,7 +46,7 @@ public class SimpleBeanTest {
         result = JSON.toJsonString(simpleMap, WriteOption.FormatOut);
     }
 
-    @Benchmark
+//    @Benchmark
     public void fastjson1(Blackhole bh) {
         bh.consume(com.alibaba.fastjson.JSON.parseObject(result, SimpleBean.class));
     }
