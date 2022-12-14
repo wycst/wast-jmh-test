@@ -128,7 +128,7 @@ EishayParseTest.wastjson       thrpt    5   982.312 ±  23.943  ops/ms
 ~~~
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/EishayParseTest.java
 
-测试结果： wastjson >= fastjson2 > jackson <br>
+测试结果： wastjson > fastjson2 > jackson <br>
 
 - 反序列化 - 简单实体bean的解析（ops/ms）
 
@@ -203,7 +203,7 @@ SimpleBeanWriteTest.wastjson   thrpt    5  2099.609 ±  78.045  ops/ms
 
 测试类: https://github.com/wycst/wast-jmh-test/blob/main/src/main/java/com/jmh/test/json/bean/SimpleBeanWriteTest.java
 
-测试结果： wastjson > fastjson2 >= jackson
+测试结果： wastjson >> fastjson2 > jackson
 
 - 序列化 - 日期类型序列化
 
