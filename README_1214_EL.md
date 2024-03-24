@@ -2,7 +2,7 @@
 
 github源码地址：
 [https://github.com/wycst/wast](https://github.com/wycst/wast) 
-最新版本: v0.0.10.1
+最新版本: v0.0.11
 
 ```xml
 

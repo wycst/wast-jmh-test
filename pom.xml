@@ -11,12 +11,12 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <jmh.version>1.35</jmh.version>
+        <jmh.version>1.36</jmh.version>
         <spring.version>5.3.9</spring.version>
         <fastjson1.version>1.2.83</fastjson1.version>
-        <fastjson2.version>2.0.21</fastjson2.version>
-        <snakeyaml-version>1.29</snakeyaml-version>
-        <jackson.version>2.13.4</jackson.version>
+        <fastjson2.version>2.0.47</fastjson2.version>
+        <snakeyaml-version>2.2</snakeyaml-version>
+        <jackson.version>2.17.0</jackson.version>
         <fel.version>0.8</fel.version>
     </properties>
 
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.github.wycst</groupId>
             <artifactId>wast</artifactId>
-            <version>0.0.9</version>
+            <version>0.0.11</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
