@@ -21,7 +21,7 @@ github源码地址：
 
 - jdk: 1.8.0_45
 - jmh.v1.3.5
-- **wast.v0.0.8**
+- **wast.v0.0.9**
 - **spel.v5.3.9**
 - **fel.v.0.8**
 
@@ -108,7 +108,7 @@ ExpressionCompilerTest.wast  thrpt    5  53573822.788 ± 826716.128  ops/s
 
 - 解释模式
 
-分别以静态表达式，动态表达式解析并运行，动态表达式直接运行3个维度比较
+分别以静态表达式，动态表达式解析并运行，动态表达式解析后运行3个维度比较
 ~~~
 Benchmark                              Mode  Cnt        Score        Error  Units
 ExpressionTest.felDirectStaticExpr    thrpt    5      443.454 ±      5.453  ops/s
