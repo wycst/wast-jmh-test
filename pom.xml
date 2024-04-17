@@ -18,13 +18,14 @@
         <snakeyaml-version>2.2</snakeyaml-version>
         <jackson.version>2.17.0</jackson.version>
         <fel.version>0.8</fel.version>
+        <dsl.version>2.0.2</dsl.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.github.wycst</groupId>
             <artifactId>wast</artifactId>
-            <version>0.0.11</version>
+            <version>0.0.12.1</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
@@ -40,6 +41,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dslplatform</groupId>
+            <artifactId>dsl-json</artifactId>
+            <version>${dsl.version}</version>
         </dependency>
 
         <dependency>
