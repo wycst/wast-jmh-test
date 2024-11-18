@@ -13,6 +13,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 import org.springframework.expression.spel.SpelCompilerMode;
 import org.springframework.expression.spel.SpelParserConfiguration;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -95,6 +96,8 @@ public class ExpressionCompilerTest {
                 .mode(Mode.Throughput)
                 .timeUnit(TimeUnit.SECONDS)
                 .forks(1)
+                .warmupTime(TimeValue.seconds(2))
+                .measurementTime(TimeValue.seconds(2))
                 .build();
         new Runner(options).run();
     }

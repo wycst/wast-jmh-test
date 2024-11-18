@@ -32,7 +32,7 @@ public class YamlTest {
     private static String yamlSource;
     static Yaml yaml = new Yaml();
     static {
-        InputStream is = YamlTest.class.getResourceAsStream("/data/yaml/t2.yaml");
+        InputStream is = YamlTest.class.getResourceAsStream("/data/yaml/entity.yaml");
         StringBuilder builder = new StringBuilder();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
         String line = null;
@@ -59,13 +59,11 @@ public class YamlTest {
         System.out.println(JSON.toJsonString(map2));
     }
 
-    // 直接运行静态表达式
     @Benchmark
     public Object wastYaml() {
         return YamlDocument.parse(yamlSource, null);
     }
 
-    // 直接运行静态表达式
     @Benchmark
     public Object snakeyaml() {
         return yaml.loadAs(yamlSource, Map.class);

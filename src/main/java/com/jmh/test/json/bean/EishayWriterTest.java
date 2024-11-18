@@ -9,6 +9,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,8 @@ public class EishayWriterTest {
     static Object object;
 
     static {
-        object = JSON.parseObject(result);
+        object = io.github.wycst.wast.json.JSON.parse(result);
+        System.out.println(object);
     }
 
     static ObjectMapper mapper = new ObjectMapper();
@@ -39,16 +41,13 @@ public class EishayWriterTest {
         bh.consume(io.github.wycst.wast.json.JSON.toJsonString(object));
     }
 
-    @Benchmark
-    public void jackson(Blackhole bh) throws IOException {
-        bh.consume(mapper.writeValueAsString(object));
-    }
 
     public static void main(String[] args) throws RunnerException {
 
         Options options = new OptionsBuilder()
                 .include(EishayWriterTest.class.getName())
                 .mode(Mode.Throughput)
+                .measurementTime(TimeValue.seconds(2))
                 .timeUnit(TimeUnit.MILLISECONDS)
                 .forks(1)
                 .build();

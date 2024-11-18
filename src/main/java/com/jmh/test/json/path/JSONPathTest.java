@@ -8,6 +8,7 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -37,19 +38,19 @@ public class JSONPathTest {
 
 
     @Benchmark
-    public List<String> wastAuthors() {
-        return JSONNode.extract(str, "/store/book/[*]/author");
+    public List<JSONNode> wastAuthors() {
+        return JSONNode.collect(str, "/store/book/*/author");
     }
 
     @Benchmark
-    public List<String> wastPrices() {
-        return JSONNode.extract(str, "/store/book/[*]/price");
+    public List<JSONNode> wastPrices() {
+        return JSONNode.collect(str, "/store/book/*/price");
     }
 
     // 读取0-1
     @Benchmark
-    public List<String> wastTop2Authors() {
-        return JSONNode.extract(str, "/store/book/[1-]/author");
+    public List<JSONNode> wastTop2Authors() {
+        return JSONNode.collect(str, "/store/book/1-/author");
     }
 
     public static void main(String[] args) throws Exception {
@@ -57,6 +58,8 @@ public class JSONPathTest {
                 .include(JSONPathTest.class.getName())
                 .mode(Mode.Throughput)
                 .timeUnit(TimeUnit.MILLISECONDS)
+                .warmupTime(TimeValue.seconds(3))
+                .measurementTime(TimeValue.seconds(3))
                 .forks(1)
                 .build();
         new Runner(options).run();

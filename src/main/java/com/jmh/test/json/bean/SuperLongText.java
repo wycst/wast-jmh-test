@@ -47,21 +47,11 @@ public class SuperLongText {
         }
         result = buffer.toString();
     }
-
+//
 //    @Benchmark
-    public void fastjson(Blackhole bh) {
-        bh.consume(com.alibaba.fastjson.JSON.parseObject(result, Map.class));
-    }
-
-    @Benchmark
-    public void fastjson2(Blackhole bh) {
-        bh.consume(com.alibaba.fastjson2.JSON.parseObject(result, Map.class));
-    }
-
-    @Benchmark
-    public void jackson(Blackhole bh) throws Exception {
-        bh.consume(mapper.readValue(result, Map.class));
-    }
+//    public void fastjson2(Blackhole bh) {
+//        bh.consume(com.alibaba.fastjson2.JSON.parseObject(result, Map.class));
+//    }
 
     @Benchmark
     public void wastjson(Blackhole bh) {

@@ -29,7 +29,7 @@ public class JSONValidateTest {
 //        result = StringUtils.fromResource("data/json/path.json");
         // error json
         result = "{\n" +
-                "  \"store\": \n" +
+                "  \"store\": \n{" +
                 "    \"book\": [\n" +
                 "      {\n" +
                 "        \"category\": \"reference\",\n" +
@@ -78,7 +78,8 @@ public class JSONValidateTest {
     }
 
     public static void main(String[] args) throws IOException, RunnerException {
-
+        System.out.println(io.github.wycst.wast.json.JSON.validate(result));
+        System.out.println(JSON.isValid(result));
         Options options = new OptionsBuilder()
                 .include(JSONValidateTest.class.getName())
                 .mode(Mode.Throughput)
