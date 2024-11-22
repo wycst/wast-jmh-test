@@ -46,13 +46,13 @@ public class ExpressionLontElTest {
             final String elString = el;
 
             // wast 134217725bit -> 130M
-//            System.out.println(String.format("wast n = %d, elLength = %d, result = %s", j, elString.length(),  Expression.eval(elString)));
+            System.out.println(String.format("wast n = %d, elLength = %d, result = %s", j, elString.length(),  Expression.eval(elString)));
 
             // spel 8189bit  -> 8kb
 //            System.out.println(String.format("spel n = %d, elLength = %d, result = %s", j, elString.length(), parser.parseExpression(elString).getValue()));
 
             // fel 8189bit  -> 8kb
-            System.out.println(String.format("fel n = %d, elLength = %d, result = %s", j, elString.length(), fel.eval(elString)));
+//            System.out.println(String.format("fel n = %d, elLength = %d, result = %s", j, elString.length(), fel.eval(elString)));
         }
     }
 
