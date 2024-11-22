@@ -78,9 +78,10 @@ public class JavaJsonJmhDeserTest {
                 .mode(Mode.Throughput)
                 .timeUnit(TimeUnit.SECONDS)
                 .warmupIterations(3)
-                .measurementTime(TimeValue.seconds(2))
+                .warmupTime(TimeValue.seconds(5))
+                .measurementTime(TimeValue.seconds(5))
                 .forks(1)
-                .threads(16)
+                .threads(7)
                 .build();
         new Runner(options).run();
     }

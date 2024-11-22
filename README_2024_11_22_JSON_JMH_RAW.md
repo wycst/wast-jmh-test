@@ -3,190 +3,190 @@ WARNING: Using incubator modules: jdk.incubator.vector
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.dsljson_deser_client
 
 # Run progress: 0.00% complete, ETA 00:04:00
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 585523.269 ops/s
-# Warmup Iteration   2: 636208.747 ops/s
-# Warmup Iteration   3: 627262.321 ops/s
-Iteration   1: 628659.103 ops/s
-Iteration   2: 629581.336 ops/s
-Iteration   3: 637561.939 ops/s
-Iteration   4: 637400.508 ops/s
-Iteration   5: 630643.243 ops/s
+# Warmup Iteration   1: 567006.461 ops/s
+# Warmup Iteration   2: 651751.870 ops/s
+# Warmup Iteration   3: 648395.786 ops/s
+Iteration   1: 652368.711 ops/s
+Iteration   2: 638647.084 ops/s
+Iteration   3: 647564.567 ops/s
+Iteration   4: 638269.525 ops/s
+Iteration   5: 619106.131 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.dsljson_deser_client":
-  632769.226 ±(99.9%) 16783.952 ops/s [Average]
-  (min, avg, max) = (628659.103, 632769.226, 637561.939), stdev = 4358.739
-  CI (99.9%): [615985.274, 649553.178] (assumes normal distribution)
+  639191.204 ±(99.9%) 49022.629 ops/s [Average]
+  (min, avg, max) = (619106.131, 639191.204, 652368.711), stdev = 12731.021
+  CI (99.9%): [590168.574, 688213.833] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.fastjson2_deser_client
 
-# Run progress: 16.67% complete, ETA 00:03:31
+# Run progress: 16.67% complete, ETA 00:03:26
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 546564.921 ops/s
-# Warmup Iteration   2: 587324.496 ops/s
-# Warmup Iteration   3: 582628.947 ops/s
-Iteration   1: 587957.797 ops/s
-Iteration   2: 591342.402 ops/s
-Iteration   3: 587838.615 ops/s
-Iteration   4: 585889.728 ops/s
-Iteration   5: 589406.933 ops/s
+# Warmup Iteration   1: 590442.937 ops/s
+# Warmup Iteration   2: 639131.651 ops/s
+# Warmup Iteration   3: 639816.636 ops/s
+Iteration   1: 643842.623 ops/s
+Iteration   2: 640704.954 ops/s
+Iteration   3: 636225.597 ops/s
+Iteration   4: 638943.399 ops/s
+Iteration   5: 642523.883 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.fastjson2_deser_client":
-  588487.095 ±(99.9%) 7807.858 ops/s [Average]
-  (min, avg, max) = (585889.728, 588487.095, 591342.402), stdev = 2027.676
-  CI (99.9%): [580679.237, 596294.952] (assumes normal distribution)
+  640448.091 ±(99.9%) 11550.536 ops/s [Average]
+  (min, avg, max) = (636225.597, 640448.091, 643842.623), stdev = 2999.637
+  CI (99.9%): [628897.555, 651998.627] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.wast_deser_client
 
-# Run progress: 33.33% complete, ETA 00:02:49
+# Run progress: 33.33% complete, ETA 00:02:45
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 956215.300 ops/s
-# Warmup Iteration   2: 995750.568 ops/s
-# Warmup Iteration   3: 1007087.571 ops/s
-Iteration   1: 1010650.395 ops/s
-Iteration   2: 1012870.645 ops/s
-Iteration   3: 1003254.961 ops/s
-Iteration   4: 1014514.053 ops/s
-Iteration   5: 1005793.376 ops/s
+# Warmup Iteration   1: 924565.914 ops/s
+# Warmup Iteration   2: 977624.482 ops/s
+# Warmup Iteration   3: 1021178.117 ops/s
+Iteration   1: 1015161.342 ops/s
+Iteration   2: 997478.387 ops/s
+Iteration   3: 1018811.891 ops/s
+Iteration   4: 1019692.324 ops/s
+Iteration   5: 1019831.636 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhDeserTest.wast_deser_client":
-  1009416.686 ±(99.9%) 18318.934 ops/s [Average]
-  (min, avg, max) = (1003254.961, 1009416.686, 1014514.053), stdev = 4757.369
-  CI (99.9%): [991097.752, 1027735.620] (assumes normal distribution)
+  1014195.116 ±(99.9%) 36716.999 ops/s [Average]
+  (min, avg, max) = (997478.387, 1014195.116, 1019831.636), stdev = 9535.288
+  CI (99.9%): [977478.117, 1050912.115] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.dsljson_ser_client
 
-# Run progress: 50.00% complete, ETA 00:02:06
+# Run progress: 50.00% complete, ETA 00:02:03
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 1116068.566 ops/s
-# Warmup Iteration   2: 1148605.460 ops/s
-# Warmup Iteration   3: 1148470.423 ops/s
-Iteration   1: 1094376.438 ops/s
-Iteration   2: 1145330.830 ops/s
-Iteration   3: 1158081.507 ops/s
-Iteration   4: 1151586.698 ops/s
-Iteration   5: 1142482.144 ops/s
+# Warmup Iteration   1: 1040833.551 ops/s
+# Warmup Iteration   2: 1125521.596 ops/s
+# Warmup Iteration   3: 1105000.902 ops/s
+Iteration   1: 1107547.741 ops/s
+Iteration   2: 1099209.655 ops/s
+Iteration   3: 1087919.072 ops/s
+Iteration   4: 1118810.305 ops/s
+Iteration   5: 1116968.547 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.dsljson_ser_client":
-  1138371.523 ±(99.9%) 97490.917 ops/s [Average]
-  (min, avg, max) = (1094376.438, 1138371.523, 1158081.507), stdev = 25318.082
-  CI (99.9%): [1040880.606, 1235862.441] (assumes normal distribution)
+  1106091.064 ±(99.9%) 49454.761 ops/s [Average]
+  (min, avg, max) = (1087919.072, 1106091.064, 1118810.305), stdev = 12843.244
+  CI (99.9%): [1056636.303, 1155545.825] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.fastjson2_ser_client
 
-# Run progress: 66.67% complete, ETA 00:01:24
+# Run progress: 66.67% complete, ETA 00:01:22
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 1376492.784 ops/s
-# Warmup Iteration   2: 1419621.283 ops/s
-# Warmup Iteration   3: 1435935.618 ops/s
-Iteration   1: 1435400.686 ops/s
-Iteration   2: 1435159.171 ops/s
-Iteration   3: 1443446.021 ops/s
-Iteration   4: 1449438.434 ops/s
-Iteration   5: 1426148.085 ops/s
+# Warmup Iteration   1: 1354076.426 ops/s
+# Warmup Iteration   2: 1529088.646 ops/s
+# Warmup Iteration   3: 1539520.710 ops/s
+Iteration   1: 1539084.028 ops/s
+Iteration   2: 1541857.114 ops/s
+Iteration   3: 1536555.287 ops/s
+Iteration   4: 1542621.038 ops/s
+Iteration   5: 1521441.069 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.fastjson2_ser_client":
-  1437918.479 ±(99.9%) 34212.181 ops/s [Average]
-  (min, avg, max) = (1426148.085, 1437918.479, 1449438.434), stdev = 8884.795
-  CI (99.9%): [1403706.299, 1472130.660] (assumes normal distribution)
+  1536311.707 ±(99.9%) 33316.424 ops/s [Average]
+  (min, avg, max) = (1521441.069, 1536311.707, 1542621.038), stdev = 8652.170
+  CI (99.9%): [1502995.283, 1569628.132] (assumes normal distribution)
 
 
 # JMH version: 1.36
 # VM version: JDK 17.0.3.1, Java HotSpot(TM) 64-Bit Server VM, 17.0.3.1+2-LTS-6
 # VM invoker: D:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
-# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=62326:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
+# VM options: -Xms3g -Xmx3g --add-opens=java.base/java.time=ALL-UNNAMED --add-modules=jdk.incubator.vector -javaagent:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\lib\idea_rt.jar=54296:D:\Program Files\JetBrains\IntelliJ IDEA 2023.1\bin -Dfile.encoding=UTF-8
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
-# Warmup: 3 iterations, 10 s each
-# Measurement: 5 iterations, 2 s each
+# Warmup: 3 iterations, 5 s each
+# Measurement: 5 iterations, 5 s each
 # Timeout: 10 min per iteration
-# Threads: 16 threads, will synchronize iterations
+# Threads: 7 threads, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
 # Benchmark: com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.wast_ser_client
 
-# Run progress: 83.33% complete, ETA 00:00:42
+# Run progress: 83.33% complete, ETA 00:00:41
 # Fork: 1 of 1
 WARNING: Using incubator modules: jdk.incubator.vector
-# Warmup Iteration   1: 1795343.722 ops/s
-# Warmup Iteration   2: 1916168.225 ops/s
-# Warmup Iteration   3: 1901659.440 ops/s
-Iteration   1: 1909972.879 ops/s
-Iteration   2: 1930897.346 ops/s
-Iteration   3: 1876051.159 ops/s
-Iteration   4: 1786196.423 ops/s
-Iteration   5: 1874268.346 ops/s
+# Warmup Iteration   1: 1653730.874 ops/s
+# Warmup Iteration   2: 1920661.164 ops/s
+# Warmup Iteration   3: 1980553.445 ops/s
+Iteration   1: 1952998.468 ops/s
+Iteration   2: 1970743.706 ops/s
+Iteration   3: 1901657.760 ops/s
+Iteration   4: 1974590.953 ops/s
+Iteration   5: 1961436.171 ops/s
 
 
 Result "com.jmh.test.json.bean.javajsonjmh.JavaJsonJmhSerTest.wast_ser_client":
-  1875477.231 ±(99.9%) 212956.557 ops/s [Average]
-  (min, avg, max) = (1786196.423, 1875477.231, 1930897.346), stdev = 55304.142
-  CI (99.9%): [1662520.673, 2088433.788] (assumes normal distribution)
+  1952285.412 ±(99.9%) 113669.838 ops/s [Average]
+  (min, avg, max) = (1901657.760, 1952285.412, 1974590.953), stdev = 29519.696
+  CI (99.9%): [1838615.574, 2065955.250] (assumes normal distribution)
 
 
-# Run complete. Total time: 00:04:13
+# Run complete. Total time: 00:04:07
 
 REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
 why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
@@ -201,11 +201,10 @@ different JVMs are already problematic, the performance difference caused by dif
 modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
 
 Benchmark                                     Mode  Cnt        Score        Error  Units
-JavaJsonJmhDeserTest.dsljson_deser_client    thrpt    5   632769.226 ±  16783.952  ops/s
-JavaJsonJmhDeserTest.fastjson2_deser_client  thrpt    5   588487.095 ±   7807.858  ops/s
-JavaJsonJmhDeserTest.wast_deser_client       thrpt    5  1009416.686 ±  18318.934  ops/s
-JavaJsonJmhSerTest.dsljson_ser_client        thrpt    5  1138371.523 ±  97490.917  ops/s
-JavaJsonJmhSerTest.fastjson2_ser_client      thrpt    5  1437918.479 ±  34212.181  ops/s
-JavaJsonJmhSerTest.wast_ser_client           thrpt    5  1875477.231 ± 212956.557  ops/s
-
+JavaJsonJmhDeserTest.dsljson_deser_client    thrpt    5   639191.204 ±  49022.629  ops/s
+JavaJsonJmhDeserTest.fastjson2_deser_client  thrpt    5   640448.091 ±  11550.536  ops/s
+JavaJsonJmhDeserTest.wast_deser_client       thrpt    5  1014195.116 ±  36716.999  ops/s
+JavaJsonJmhSerTest.dsljson_ser_client        thrpt    5  1106091.064 ±  49454.761  ops/s
+JavaJsonJmhSerTest.fastjson2_ser_client      thrpt    5  1536311.707 ±  33316.424  ops/s
+JavaJsonJmhSerTest.wast_ser_client           thrpt    5  1952285.412 ± 113669.838  ops/s
 ~~~
