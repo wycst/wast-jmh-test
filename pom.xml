@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
+            <artifactId>fastjson2-incubator-vector</artifactId>
             <version>${fastjson2.version}</version>
         </dependency>
         <dependency>
