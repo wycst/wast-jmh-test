@@ -54,6 +54,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.simdjson</groupId>
+            <artifactId>simdjson-java</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
             <version>${spring.version}</version>
