@@ -15,7 +15,6 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Date 2024/4/17 22:27
@@ -58,7 +57,6 @@ public class JavaJsonJmhSerTest {
         Options options = new OptionsBuilder()
                 .include(JavaJsonJmhSerTest.class.getName())
                 .mode(Mode.Throughput)
-                .timeUnit(TimeUnit.SECONDS)
                 .warmupIterations(3)
                 .forks(1)
                 .threads(16)

@@ -76,7 +76,6 @@ public class JavaJsonJmhDeserTest {
                 .include(JavaJsonJmhDeserTest.class.getName())
                 .include(JavaJsonJmhSerTest.class.getName())
                 .mode(Mode.Throughput)
-                .timeUnit(TimeUnit.SECONDS)
                 .warmupIterations(3)
                 .warmupTime(TimeValue.seconds(5))
                 .measurementTime(TimeValue.seconds(5))

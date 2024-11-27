@@ -31,38 +31,39 @@ public class TwitterJmhTest {
     static {
         try {
             buffer = IOUtils.readBytes(TwitterJmhTest.class.getResourceAsStream("/data/json/twitter.json"));
+            System.out.println("data size: " + (buffer.length >> 10) + "kb");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Benchmark
-    public int parseAndSelect_Fastjson2() {
-        JSONObject jsonObject = (JSONObject) JSON.parse(buffer);
-        Set<String> defaultUsers = new HashSet<>();
-        Iterator<Object> tweets = jsonObject.getJSONArray("statuses").iterator();
-        while (tweets.hasNext()) {
-            JSONObject tweet = (JSONObject) tweets.next();
-            JSONObject user = (JSONObject) tweet.get("user");
-            if (user.getBoolean("default_profile")) {
-                defaultUsers.add(user.getString("screen_name"));
-            }
-        }
-        return defaultUsers.size();
-    }
-
-    @Benchmark
-    public int schemaBasedParseAndSelect_Fastjson2() {
-        Set<String> defaultUsers = new HashSet<>();
-        SimdJsonTwitter twitter = JSON.parseObject(buffer, SimdJsonTwitter.class);
-        for (SimdJsonStatus status : twitter.statuses) {
-            SimdJsonUser user = status.user;
-            if (user.default_profile) {
-                defaultUsers.add(user.screen_name);
-            }
-        }
-        return defaultUsers.size();
-    }
+//    @Benchmark
+//    public int parseAndSelect_Fastjson2() {
+//        JSONObject jsonObject = (JSONObject) JSON.parse(buffer);
+//        Set<String> defaultUsers = new HashSet<>();
+//        Iterator<Object> tweets = jsonObject.getJSONArray("statuses").iterator();
+//        while (tweets.hasNext()) {
+//            JSONObject tweet = (JSONObject) tweets.next();
+//            JSONObject user = (JSONObject) tweet.get("user");
+//            if (user.getBoolean("default_profile")) {
+//                defaultUsers.add(user.getString("screen_name"));
+//            }
+//        }
+//        return defaultUsers.size();
+//    }
+//
+//    @Benchmark
+//    public int schemaBasedParseAndSelect_Fastjson2() {
+//        Set<String> defaultUsers = new HashSet<>();
+//        SimdJsonTwitter twitter = JSON.parseObject(buffer, SimdJsonTwitter.class);
+//        for (SimdJsonStatus status : twitter.statuses) {
+//            SimdJsonUser user = status.user;
+//            if (user.default_profile) {
+//                defaultUsers.add(user.screen_name);
+//            }
+//        }
+//        return defaultUsers.size();
+//    }
 
     @Benchmark
     public int parseAndSelect_WastJson() {
