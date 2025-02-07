@@ -71,6 +71,22 @@ public class JSONPath2Test {
     }
 
     public static void main(String[] args) throws Exception {
+
+//        // -- author
+//        System.out.println(JSONPath.extract(str, "$.store.book[*].author"));
+//        System.out.println(ONode.loadStr(str).select("$.store.book[*].author"));
+//        System.out.println(JSONNode.collect(str, "/store/book/*/author"));
+//
+//        // price
+//        System.out.println(JSONPath.extract(str, "$.store.book[*].price"));
+//        System.out.println(ONode.loadStr(str).select("$.store.book[*].price"));
+//        System.out.println(JSONNode.collect(str, "/store/book/*/price"));
+//
+//        // top2
+//        System.out.println(JSONPath.extract(str, "$.store.book[0,1].author"));
+//        System.out.println(ONode.loadStr(str).select("$.store.book[0,1].author"));
+//        System.out.println(JSONNode.collect(str, "/store/book/1-/author"));
+
         Options options = new OptionsBuilder()
                 .include(JSONPath2Test.class.getName())
                 .mode(Mode.Throughput)
