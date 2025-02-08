@@ -1,5 +1,8 @@
 package com.jmh.test.json.path;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
+import com.alibaba.fastjson2.JSONPath;
 import io.github.wycst.wast.common.utils.StringUtils;
 import io.github.wycst.wast.json.JSONNode;
 import io.github.wycst.wast.json.JSONNodePath;
@@ -18,18 +21,28 @@ public class JSONPathSelectTest {
     private static String str;
     static final ONode onode;
     static final JSONNodePath AUTHOR_PATH = JSONNodePath.parse("/store/book/*/author");
+    static final JSONPath AUTHOR_FASTJSON2PATH = JSONPath.of("$.store.book[*].author");
     static final JSONNode root;
+
+    static final JSONObject fastJSONObject;
 
     static {
         str = StringUtils.fromResource("data/json/path.json");
         onode = ONode.loadStr(str);
         root = JSONNode.parse(str);
+        fastJSONObject = JSON.parseObject(str);
     }
 
-//    @Benchmark
-//    public Object fastjsonReaderAuthors() {
-//        return JSONPath.extract(str, "$.store.book[*].author");
-//    }
+    @Benchmark
+    public Object fastjson2AuthorsNoCachePath() {
+        return JSONPath.eval(fastJSONObject, "$.store.book[*].author");
+    }
+
+    @Benchmark
+    public Object fastjson2Authors() {
+        return AUTHOR_FASTJSON2PATH.eval(fastJSONObject);
+    }
+
 //
 //    @Benchmark
 //    public Object fastjsonReaderPrices() {
@@ -86,8 +99,8 @@ public class JSONPathSelectTest {
 //    }
 
     public static void main(String[] args) throws Exception {
-
-
+        System.out.println(AUTHOR_FASTJSON2PATH.eval(fastJSONObject));
+        System.out.println(JSONPath.eval(fastJSONObject, "$.store.book[*].author"));
         System.out.println(onode.select("$.store.book[*].author"));
         System.out.println(root.collect(AUTHOR_PATH));
 
