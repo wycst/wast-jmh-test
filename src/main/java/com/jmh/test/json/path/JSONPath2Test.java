@@ -3,6 +3,7 @@ package com.jmh.test.json.path;
 import com.alibaba.fastjson2.JSONPath;
 import io.github.wycst.wast.common.utils.StringUtils;
 import io.github.wycst.wast.json.JSONNode;
+import io.github.wycst.wast.json.JSONNodePath;
 import org.noear.snack.ONode;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
@@ -20,38 +21,41 @@ public class JSONPath2Test {
     static {
         str = StringUtils.fromResource("data/json/path.json");
     }
+    static final JSONNodePath AUTHOR_PATH = JSONNodePath.parse("/store/book/*/author");
+    static final JSONNodePath price_PATH = JSONNodePath.parse("/store/book/*/price");
+    static final JSONNodePath top2_PATH = JSONNodePath.parse("/store/book/1-/author");
 
-    @Benchmark
-    public Object fastjsonReaderAuthors() {
-        return JSONPath.extract(str, "$.store.book[*].author");
-    }
-
-    @Benchmark
-    public Object fastjsonReaderPrices() {
-        return JSONPath.extract(str, "$.store.book[*].price");
-    }
-
-    // 读取0-1
-    @Benchmark
-    public Object fastjsonReaderTop2Author() {
-        return JSONPath.extract(str, "$.store.book[0,1].author");
-    }
-
+//    @Benchmark
+//    public Object fastjsonReaderAuthors() {
+//        return JSONPath.extract(str, "$.store.book[*].author");
+//    }
+//
+//    @Benchmark
+//    public Object fastjsonReaderPrices() {
+//        return JSONPath.extract(str, "$.store.book[*].price");
+//    }
+//
+//    // 读取0-1
+//    @Benchmark
+//    public Object fastjsonReaderTop2Author() {
+//        return JSONPath.extract(str, "$.store.book[0,1].author");
+//    }
+//
 
     @Benchmark
     public List<JSONNode> wastAuthors() {
-        return JSONNode.collect(str, "/store/book/*/author");
+        return JSONNode.collect(str, AUTHOR_PATH);
     }
 
     @Benchmark
     public List<JSONNode> wastPrices() {
-        return JSONNode.collect(str, "/store/book/*/price");
+        return JSONNode.collect(str, price_PATH);
     }
 
     // 读取0-1
     @Benchmark
     public List<JSONNode> wastTop2Authors() {
-        return JSONNode.collect(str, "/store/book/1-/author");
+        return JSONNode.collect(str, top2_PATH);
     }
 
     @Benchmark
