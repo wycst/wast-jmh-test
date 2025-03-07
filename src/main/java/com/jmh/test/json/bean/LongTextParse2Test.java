@@ -9,13 +9,12 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 /**
  * @Author: wangy
  * @Date: 2022/6/3 8:45
@@ -110,8 +109,8 @@ public class LongTextParse2Test {
         Options options = new OptionsBuilder()
                 .include(LongTextParse2Test.class.getName())
                 .mode(Mode.Throughput)
-                .timeUnit(TimeUnit.SECONDS)
                 .warmupIterations(3)
+                .measurementTime(TimeValue.seconds(3))
                 .forks(1)
                 .build();
         new Runner(options).run();
